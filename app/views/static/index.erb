@@ -1,13 +1,29 @@
-<h1>Hello World</h1>
+<h1 id='title'>Ditly!</h1>
 <p>See Me in views/static/index.html.erb</p>
+<p> Please enter the long URL in the box below</p>
+
 <form action="/urls" method="post">
 	Enter URL:
 	<input type=" " name="long_url" placeholder="put something here">
 	<input type="submit" value="Submit">
 	<input type=" ">
 
-</form>
+<table border="1" style="width:50%" align="center">
+   
+   <td>No.</td> 
+   <td>Original URL</td>
+   <td>Shorten URL</td>
+ <tr><% @urls.each_with_index do |url, index| %>
+   <td><%= index + 1 %></td> 
+   <td><%= url.long_url %></td>
+   <td><%= url.short_url %></td>
 
-<% @urls.each_with_index do |url, index| %>
-	<p><%= index + 1 %>. <%= url.long_url %> | <%= url.short_url %></p>
-<% end %>
+ </tr>
+ <% end %>
+</table>
+
+
+</form>
+<!--<% @urls.each_with_index do |url, index| %>
+    <p class='red'><%= index + 1 %>. <%= url.long_url %> | <%= url.short_url %></p>
+<% end %>-->
